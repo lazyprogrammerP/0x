@@ -1,0 +1,12 @@
+services:
+  0x:
+    container_name: "0xdb"
+    image: postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: postgres
+    volumes:
+      - ./.db/postgres:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
