@@ -30,8 +30,14 @@ model Lead {
   name  String
   phone String
 
-  agent   Agent @relation(fields: [agentId], references: [id])
+  contacted Boolean @default(false)
+  callSID   String?
+
+  evaluated      Boolean @default(false)
+  evaluationData Json?
+
   agentId Int
+  agent   Agent @relation(fields: [agentId], references: [id], onDelete: Cascade)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
